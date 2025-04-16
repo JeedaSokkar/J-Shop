@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+.item{
+    background-color:var(--main-color);
+
+}
+.form{
+    width:500px;
+    height: 490px;
+    background-color:white;
+}
+.head{
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+ color: var(--custom-color);
+
+
+}
+.head:hover{
+    transform: scale(1.5); /* تكبير العنصر */
+    opacity: 0.8; /* تقليل الشفافية */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* إضافة انتقال سلس */
+    
+}
+.label{
+    width:440px;
+    
+}
+.button{
+    background-color:var(--custom-color);
+}
+/*col 2*/
+.item2{
+    background-color:var(--custom-color);
+    width:400px;
+    height: 490px;
+}
+.head2{
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+}
+.load{
+   color:var(--custom-color);   
+}

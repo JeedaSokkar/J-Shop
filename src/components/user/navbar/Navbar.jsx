@@ -7,16 +7,17 @@ import { Link } from 'react-router-dom';
 
 export default function CustomNavbar() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary ">
             <Container>
-                <Navbar.Brand href="#home">J-Shop</Navbar.Brand>
+                <Navbar.Brand href="#home">j-Store</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                       
-                        <Nav.Link  as={Link} to={'/Register'} href="#link">Register </Nav.Link>
-                        <Nav.Link  as={Link} to={'/login'} href="#link">Login</Nav.Link>
-                       
+                        <Nav.Link  as={Link} to={'/auth/register'} href="#link">Register </Nav.Link>
+                        <Nav.Link  as={Link} to={'/auth/login'} href="#link">Login</Nav.Link>
+                        <Nav.Link  as={Link} to={'/categories'} href="#link">Category</Nav.Link>
+                        <Nav.Link  as={Link} to={'/products'} href="#link">Products</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

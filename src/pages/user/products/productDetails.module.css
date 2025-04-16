@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+.title{
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 50;
+    color: #cb4a4a;  
+}
+.button{
+    background-color:var(--main-color);
+}
+.button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #cb4a4a;
+}
+img:hover{
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
