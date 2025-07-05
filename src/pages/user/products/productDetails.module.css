@@ -8,11 +8,11 @@
     background-color:var(--main-color);
 }
 .button:hover{
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(.99);
+    box-shadow: 0 8px 9px rgba(0, 0, 0, 0.2);
     background-color: #cb4a4a;
 }
 img:hover{
-    transform: scale(1.2);
+    transform: scale(.95);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }

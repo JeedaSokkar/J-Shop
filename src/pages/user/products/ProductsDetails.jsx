@@ -9,12 +9,19 @@ import { Card, ListGroup } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
+import { toast, Bounce } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 
 export default function ProductsDetails() {
   const { productId } = useParams();
   const [productDetails, setProductDetails] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   const Details = async () => {
     try {
@@ -28,9 +35,67 @@ export default function ProductsDetails() {
       setIsLoading(false);
     }
   }
+  const AddProducTtoCart = async () => {
+    try {
+      const token = localStorage.getItem("userToken")
+      const response = await axios.post('https://ecommerce-node4.onrender.com/cart',
+        {
+          productId: productId
+        }
+        ,
+        {
+          headers: {
+            Authorization: `Tariq__${token}`,
+          
+          }
+        });
+ //console.log(localStorage.getItem("userToken"))
+      if (response.status == 201) {
+        toast.success('Product Add successfully', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+
+        });
+        navigate('/cart')
+      }
+    }
+
+    catch (error) {
+      console.log("ERROR", error);
+    
+      /*if (error.response) {
+        console.log("Response Data:", error.response.data);
+        console.log("Status Code:", error.response.status);
+      } else {
+        console.log("Error Message:", error.message);
+      }*/
+      toast.error(error.response.data.message
+        , {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+      
+    }
+    finally{
+      setIsLoading(false);
+  }
+};
   useEffect(() => {
     Details();
-  }, [])
+  }, []);
   if (isLoading) {
     return <Loading />
   }
@@ -66,7 +131,7 @@ export default function ProductsDetails() {
 
             </Carousel>
             <div className=' d-flex justify-content-center align-items-center'>
-              <Button className={`${styleDetailes.button} w-50 mt-3 `} size="lg">
+              <Button onClick={() => AddProducTtoCart(productDetails.product._id)} className={`${styleDetailes.button} w-50 mt-3 `} size="lg">
                 Add to cart
               </Button>
             </div>

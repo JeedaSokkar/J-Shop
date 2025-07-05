@@ -13,11 +13,12 @@ export default function CustomNavbar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                      
-                        <Nav.Link  as={Link} to={'/auth/register'} href="#link">Register </Nav.Link>
-                        <Nav.Link  as={Link} to={'/auth/login'} href="#link">Login</Nav.Link>
-                        <Nav.Link  as={Link} to={'/categories'} href="#link">Category</Nav.Link>
-                        <Nav.Link  as={Link} to={'/products'} href="#link">Products</Nav.Link>
+                        <Nav.Link as={Link} to="/auth/register">Register</Nav.Link>
+                        <Nav.Link as={Link} to="/auth/login">Login</Nav.Link>
+                        <Nav.Link as={Link} to="/categories">Category</Nav.Link>
+                        <Nav.Link as={Link} to="/products">Products</Nav.Link>
+                        <Nav.Link as={Link} to="/cart">cart</Nav.Link>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -78,7 +78,7 @@ export default function Register() {
                     variant="danger"
                     onClose={() => setServerError(null)}
                     dismissible
-                    className="position-fixed top-50 end-0 translate-middle-y  w-100"
+                    className="position-fixed top-25 end-0 "
                   >
                     <Alert.Heading>Error!</Alert.Heading>
                     <p>{serverError}</p>

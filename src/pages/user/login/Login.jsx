@@ -27,6 +27,8 @@ export default function Login() {
      try {
        const response = await axios.post(`${import.meta.env.VITE_BURL}/auth/signin`, data);
     if(response.status == 200){
+    //  console.log("Login Response:", response.data);
+
       localStorage.setItem("userToken",response.data.token);//الموقع بيعرفك من خلال متصفحك
       navigate('/');
     }

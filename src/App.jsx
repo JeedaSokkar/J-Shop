@@ -16,6 +16,7 @@ import Categories from './pages/user/category/Categories';
 import Products from './pages/user/products/Products';
 import CategoryProducts from './pages/user/products/CategoryProducts';
 import ProductsDetails from './pages/user/products/ProductsDetails';
+import Cart from './pages/user/cart/Cart';
 export default function App() {
   const router=createBrowserRouter([
     {
@@ -55,6 +56,10 @@ export default function App() {
           {
             path:'product/:productId',
             element:<ProductsDetails/>
+          },
+          {
+            path:'cart',
+            element:<Cart/>
           }
         ]
     },
