@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import styleProd from "./product.module.css";
+import styleProd from "./Product.module.css";
 import { Link } from 'react-router-dom';
 //عشان بدي استخدمو عند عرض اي منتجات
 export default function Product({ item }) {
