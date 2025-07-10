@@ -73,17 +73,25 @@ export default function Register() {
             </div>
           </Col>
           <Col>
-          {serverError ? (
-                  <Alert
-                    variant="danger"
-                    onClose={() => setServerError(null)}
-                    dismissible
-                    className="position-fixed top-25 end-0 "
-                  >
-                    <Alert.Heading>Error!</Alert.Heading>
-                    <p>{serverError}</p>
-                  </Alert>
-                ) : null}
+         {serverError && (
+  <div className="position-fixed top-0 end-0 p-3" style={{ zIndex: 1055 }}>
+    <Alert 
+      variant="danger" 
+      onClose={() => setServerError(null)} 
+      dismissible 
+      className="shadow-lg rounded-4"
+    >
+      <div className="d-flex align-items-start gap-2">
+        <i className="bi bi-exclamation-circle-fill fs-4 text-danger"></i>
+        <div>
+          <Alert.Heading className="fs-5 mb-1">Something went wrong</Alert.Heading>
+          <p className="mb-0">{serverError}</p>
+        </div>
+      </div>
+    </Alert>
+  </div>
+)}
+
             <div className={`${style.form} d-flex justify-content-center align-items-center`}>
               
               <form onSubmit={handleSubmit(onSubmit)} >

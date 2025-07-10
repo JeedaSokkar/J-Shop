@@ -1,0 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+.head{
+    color: #cb4a4a;
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+}
+.headTable{
+   
+  text-align: center;
+  vertical-align: middle;
+ font-family: "TikTok Sans", sans-serif;
+}

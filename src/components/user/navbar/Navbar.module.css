@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+.title{
+  
+}
+.text {
+  visibility: hidden;
+opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.home{
+    color: #cb4a4a;
+text-decoration: underline;
+font-family: "Inter", sans-serif;
+font-weight: 700;
+}
+.Register{
+  color: black;
+  font-family: "Inter", sans-serif;
+font-weight: 700;
+}
+.Register:hover{
+  color: #cb4a4a;
+ 
+
+}
+.Register:hover .text{
+  color: #cb4a4a;
+  visibility:visible;
+  opacity: 1;
+font-family: "Inter", sans-serif;
+}
+.Category{
+  color: black;
+  font-family: "Inter", sans-serif;
+font-weight: 700;
+}
+.Category:hover{
+  color: #cb4a4a;
+
+
+}
+.Products{
+  color: black;
+  font-family: "Inter", sans-serif;
+font-weight: 700;
+}
+.Products:hover{
+  color: #cb4a4a;
+}
+.cart{
+  color: black;
+ 
+font-weight: 700; 
+}
+.cart:hover{
+  color: #cb4a4a;
+
+}
+
+
