@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,useContext} from 'react'
 import { useParams } from 'react-router-dom'
 import Loading from '../../../components/loading/Loading';
 import Container from 'react-bootstrap/Container';
@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast, Bounce } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { CartContext } from '../../../components/user/context/CartContext';
 
 
 
@@ -22,6 +23,7 @@ export default function ProductsDetails() {
   const [productDetails, setProductDetails] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  const { cartCount,SetCartCount } = useContext(CartContext);
 
   const Details = async () => {
     try {
@@ -62,6 +64,8 @@ export default function ProductsDetails() {
           theme: "light",
 
         });
+  SetCartCount(cartCount+1);
+
         navigate('/cart')
       }
     }

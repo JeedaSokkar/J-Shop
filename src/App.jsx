@@ -19,6 +19,7 @@ import ProductsDetails from "./pages/user/products/ProductsDetails";
 import Cart from "./pages/user/cart/Cart";
 import ProtectedRoute from "./components/user/protectedroute/ProtectedRoute";
 import CartContextProvider from "./components/user/context/CartContext";
+import Profile from "./components/user/profile/Profile";
 export default function App() {
   const router = createBrowserRouter([
     {
@@ -82,6 +83,10 @@ export default function App() {
               <Cart />
             </ProtectedRoute>
           ),
+        },
+         {
+          path: "profile",
+          element:<Profile/>,
         },
       ],
     },
