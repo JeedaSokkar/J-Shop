@@ -11,10 +11,13 @@ import { IoMdPerson } from "react-icons/io";
 import Dropdown from 'react-bootstrap/Dropdown';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { IoLogOutOutline } from "react-icons/io5";
+import { UserContext } from "../context/UserContext";
+import Loading from "../../loading/Loading";
 
 
 export default function CustomNavbar() {
   const { cartCount } = useContext(CartContext);
+  const{user ,isLoading}=useContext(UserContext);
   return (
     <Navbar expand="lg" className="bg-body-tertiary ">
       <Container>
@@ -62,17 +65,23 @@ export default function CustomNavbar() {
 
               <span className={style.text}>Sign Up</span>
             </Nav.Link>
- <Dropdown>
-      <Dropdown.Toggle variant="Secondary" id="dropdown-basic" className={style.drop}>
-            <i className="bi bi-person-circle"></i>  My Account
-      </Dropdown.Toggle>
+<div style={{ position: "relative" }}>
+  <Dropdown align="end">
+    <Dropdown.Toggle variant="Secondary" id="dropdown-basic" className={style.drop}>
+      <i className="bi bi-person-circle"></i> {isLoading?<Loading/> : user.userName} 
+    </Dropdown.Toggle>
 
-      <Dropdown.Menu>
-        <Dropdown.Item as={Link} className={style.profile} to="/Profile"><i className="bi bi-person me-2"></i> Profile</Dropdown.Item>
-        <Dropdown.Item as={Link} className={style.LogOut} href="#/action-2"><IoLogOutOutline /> Log Out</Dropdown.Item>
-     
-      </Dropdown.Menu>
-    </Dropdown>
+    <Dropdown.Menu>
+      <Dropdown.Item as={Link} className={style.profile} to="/profile">
+        <i className="bi bi-person me-2"></i> Profile
+      </Dropdown.Item>
+      <Dropdown.Item as={Link} className={style.LogOut} to="/auth/logout">
+        <IoLogOutOutline /> Log Out
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+</div>
+
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -58,7 +58,7 @@ font-weight: 700;
 font-weight: 700; 
 }
 .cart:hover{
-  color: #cb4a4a;
+color: #cb4a4a;
 font-weight: 700;
 }
 
@@ -70,4 +70,8 @@ font-weight: 700;
 }
 .LogOut:hover{
    color: #cb4a4a;
+}
+.drop {
+  max-height: 300px;
+  overflow-y: auto;
 }

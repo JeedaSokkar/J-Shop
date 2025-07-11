@@ -20,6 +20,9 @@ import Cart from "./pages/user/cart/Cart";
 import ProtectedRoute from "./components/user/protectedroute/ProtectedRoute";
 import CartContextProvider from "./components/user/context/CartContext";
 import Profile from "./components/user/profile/Profile";
+import Info from "./components/user/profile/Info";
+import Orders from "./components/user/profile/Orders";
+import UserContextProvider from "./components/user/context/UserContext";
 export default function App() {
   const router = createBrowserRouter([
     {
@@ -87,6 +90,17 @@ export default function App() {
          {
           path: "profile",
           element:<Profile/>,
+          children:[
+            { 
+              path: "Info",
+              element : <Info/>
+            },
+          {
+              path: "Orders",
+              element : <Orders/>
+          }
+
+          ]
         },
       ],
     },
@@ -98,10 +112,10 @@ export default function App() {
   ]);
   return (
     <>
-   
+   <UserContextProvider>
       <ToastContainer />
       <RouterProvider router={router} />
-
+</UserContextProvider>
     </>
   );
 }

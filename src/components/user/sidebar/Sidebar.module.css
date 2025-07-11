@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+
+
+.side{
+height: 100vh;
+}
+.item1 , .item2 , .item3{
+color: black;
+ font-family: "Inter", sans-serif;
+
+font-weight: 750;
+}
