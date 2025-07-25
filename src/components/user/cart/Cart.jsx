@@ -12,7 +12,7 @@ export default function Cart() {
     try {
       const token = localStorage.getItem("userToken");
       console.log("Token:", token); 
-      const response = await axios.get('https://ecommerce-node4.onrender.com/cart',
+      const response = await axios.get(`${import.meta.env.VITE_BURL}/cart`,
         {
           headers: {
             Authorization: `Tariq__${token}`,

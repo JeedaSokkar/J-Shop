@@ -18,7 +18,7 @@ export default function cart() {
     try {
       const token = localStorage.getItem("userToken");
       const response = await axios.get(
-        "https://ecommerce-node4.onrender.com/cart",
+       ` ${import.meta.env.VITE_BURL}/cart`,
         {
           headers: {
             Authorization: `Tariq__${token}`,
@@ -47,7 +47,7 @@ export default function cart() {
   const incQty = async (productId) => {
     const token = localStorage.getItem("userToken");
     const response = await axios.patch(
-      "https://ecommerce-node4.onrender.com/cart/incraseQuantity",
+      `${import.meta.env.VITE_BURL}/cart/incraseQuantity`,
       {
         productId: productId,
       },
@@ -63,7 +63,7 @@ export default function cart() {
   const decQty = async (productId) => {
     const token = localStorage.getItem("userToken");
     const response = await axios.patch(
-      "https://ecommerce-node4.onrender.com/cart/decraseQuantity",
+      `${import.meta.env.VITE_BURL}/cart/decraseQuantity`,
       {
         productId: productId,
       },
@@ -81,7 +81,7 @@ export default function cart() {
     const token = localStorage.getItem("userToken");
 
     const response = await axios.patch(
-      "https://ecommerce-node4.onrender.com/cart/removeItem",
+      `${import.meta.env.VITE_BURL}/cart/removeItem`,
       {
         productId: productId,
       },

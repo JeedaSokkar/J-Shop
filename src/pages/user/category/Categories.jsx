@@ -13,7 +13,7 @@ export default function Categories() {
   const [isLoading, setIsLoading] = useState(true);
   const getCategories = async () => {
     try {
-      const { data } = await axios.get(`https://ecommerce-node4.onrender.com/categories/active`);
+      const { data } = await axios.get(`${import.meta.env.VITE_BURL}/categories/active`);
       setGetCategories(data);
     }
     catch (error) {

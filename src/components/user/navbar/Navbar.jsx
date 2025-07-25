@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { IoCartOutline } from "react-icons/io5";
@@ -14,19 +13,20 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { UserContext } from "../context/UserContext";
 import Loader from "../../loading/Loader";
 
-
 export default function CustomNavbar() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const { cartCount } = useContext(CartContext);
-  const{user,isLoading,setUser}=useContext(UserContext);
+  const { user, isLoading, setUser } = useContext(UserContext);
 
-  const logout= ()=>{
+  // Logout function
+  const logout = () => {
     localStorage.removeItem('userToken');
     setUser(null);
     navigate('/auth/login');
-  }
+  };
+
   return (
-    <Navbar expand="lg" className="bg-body-tertiary ">
+    <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home" className={style.title}>
           J-Store
@@ -34,18 +34,13 @@ export default function CustomNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/" className={`${style.home}`}>
+            <Nav.Link as={Link} to="/" className={style.home}>
               Home
             </Nav.Link>
-
-            <Nav.Link
-              as={Link}
-              to="/categories"
-              className={`${style.Category}`}
-            >
+            <Nav.Link as={Link} to="/categories" className={style.Category}>
               Category
             </Nav.Link>
-            <Nav.Link as={Link} to="/products" className={`${style.Products}`}>
+            <Nav.Link as={Link} to="/products" className={style.Products}>
               Products
             </Nav.Link>
             <Nav.Link as={Link} to="/cart" className="position-relative">
@@ -63,39 +58,35 @@ export default function CustomNavbar() {
               )}
             </Nav.Link>
 
-            <Nav.Link
-              as={Link}
-              to="/auth/register"
-              className={`${style.Register}`}
-            >
-              <IoMdPerson />
+            {!user ? (
+              <Nav.Link as={Link} to="/auth/login" className={style.Register}>
+                <IoMdPerson />
+                <span className={style.text}>Sign In</span>
+              </Nav.Link>
+            ) : (
+              <div style={{ position: "relative" }}>
+                <Dropdown align="end">
+                  <Dropdown.Toggle variant="Secondary" id="dropdown-basic" className={style.drop}>
+                    {isLoading ? (
+                      <Loader />  
+                    ) : (
+                      <>
+                        <i className="bi bi-person-circle"></i> {user?.userName || "User"} 
+                      </>
+                    )}
+                  </Dropdown.Toggle>
 
-              <span className={style.text}>Sign Up</span>
-            </Nav.Link>
- <div style={{ position: "relative" }}>
-      <Dropdown align="end">
-        <Dropdown.Toggle variant="Secondary" id="dropdown-basic" className={style.drop}>
-      
-          {isLoading ? (
-            <Loader/>
-          ) : (
-            <>
-              <i className="bi bi-person-circle"></i> {user.userName}
-            </>
-          )}
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          <Dropdown.Item as={Link} className={style.profile} to="/profile">
-            <i className="bi bi-person me-2"></i> Profile
-          </Dropdown.Item>
-          <Dropdown.Item className={style.LogOut} onClick={logout}>
-            <IoLogOutOutline /> Log Out
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-    </div>
-
+                  <Dropdown.Menu>
+                    <Dropdown.Item as={Link} className={style.profile} to="/profile">
+                      <i className="bi bi-person me-2"></i> Profile
+                    </Dropdown.Item>
+                    <Dropdown.Item className={style.LogOut} onClick={logout}>
+                      <IoLogOutOutline /> Log Out
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

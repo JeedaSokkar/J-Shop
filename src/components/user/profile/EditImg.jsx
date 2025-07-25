@@ -26,7 +26,7 @@ export default function EditImg() {
     formData.append("image", data.Image[0]);
     try {
       const response = await axios.put(
-        "https://ecommerce-node4.onrender.com/user/update-image",
+        `${import.meta.env.VITE_BURL}/user/update-image`,
         formData,
         {
           headers: {
