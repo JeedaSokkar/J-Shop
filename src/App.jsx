@@ -23,13 +23,23 @@ import Profile from "./components/user/profile/Profile";
 import Info from "./components/user/profile/Info";
 import Orders from "./components/user/profile/Orders";
 import UserContextProvider from "./components/user/context/UserContext";
+import EditImg from "./components/user/profile/EditImg";
+import AuthProtectedRouter from "./components/user/AuthProtectedRouter/AuthProtectedRouter";
+import ForgetPass from "./pages/user/forgetPass/ForgetPass";
+
 export default function App() {
   const router = createBrowserRouter([
     {
       //auth/Register
       //auth/Login
       path: "/auth",
-      element: <AuthLayout />,
+      element:
+      <AuthProtectedRouter> 
+         <AuthLayout />
+      </AuthProtectedRouter>,
+   
+     
+
       children: [
         {
           path: "register",
@@ -38,6 +48,9 @@ export default function App() {
         {
           path: "login",
           element: <Login />,
+        }, {
+          path: "forget",
+          element: <ForgetPass/>
         },
       ],
     },
@@ -98,6 +111,10 @@ export default function App() {
           {
               path: "Orders",
               element : <Orders/>
+          },
+           {
+              path: "EditImg",
+              element :<EditImg/>
           }
 
           ]

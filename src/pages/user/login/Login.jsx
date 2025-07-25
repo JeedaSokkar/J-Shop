@@ -81,11 +81,17 @@ export default function Login() {
                      {errors.password ? <span className='text-danger'>{errors.password.message}</span> : null}
                    </FloatingLabel>
                  </div>
+                   <div className="text-center">
+                  <Link to="/auth/forget" className="text-decoration-none text-light">
+                    <p className={style.pass}>Forgot Password?</p>
+                  </Link>
+                </div>
                  <div className=' d-flex justify-content-center align-items-center'>
                    <Button type="submit" variant="outline-light" disabled={isLoading} className={`${style.button} rounded-pill m-4 w-50 p-2`}>
                      {isLoading ? <div className={`${style.load}`}>Loading... </div> : "SIGN IN"}
                    </Button>
                  </div>
+                  
                </form>
              </div>
            </Col>

@@ -10,3 +10,11 @@ color: black;
 
 font-weight: 750;
 }
+.icon {
+  cursor: pointer; 
+
+  transition: color 0.3s; 
+}
+.icon:hover{
+    color: #cb4a4a;
+}

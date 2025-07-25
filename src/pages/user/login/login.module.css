@@ -42,3 +42,7 @@
 .load{
    color:var(--custom-color);   
 }
+.pass{
+    color:var(--main-color);
+text-align: right;
+}

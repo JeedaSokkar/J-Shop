@@ -37,7 +37,7 @@ export default function Categories() {
         <h2>What are you shopping for today?</h2>
       </div>
 
-      <div className='row'>
+      <div className='row mb-5'>
         {Categories?.categories?.map((item) => (
           <div className='col-md-3' key={item._id}>
            <Link to={`/categories/${item._id}`}>

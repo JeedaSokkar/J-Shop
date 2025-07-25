@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { IoCartOutline } from "react-icons/io5";
 import style from "./Navbar.module.css";
@@ -12,12 +12,19 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { IoLogOutOutline } from "react-icons/io5";
 import { UserContext } from "../context/UserContext";
-import Loading from "../../loading/Loading";
+import Loader from "../../loading/Loader";
 
 
 export default function CustomNavbar() {
+  const navigate=useNavigate();
   const { cartCount } = useContext(CartContext);
-  const{user ,isLoading}=useContext(UserContext);
+  const{user,isLoading,setUser}=useContext(UserContext);
+
+  const logout= ()=>{
+    localStorage.removeItem('userToken');
+    setUser(null);
+    navigate('/auth/login');
+  }
   return (
     <Navbar expand="lg" className="bg-body-tertiary ">
       <Container>
@@ -65,22 +72,29 @@ export default function CustomNavbar() {
 
               <span className={style.text}>Sign Up</span>
             </Nav.Link>
-<div style={{ position: "relative" }}>
-  <Dropdown align="end">
-    <Dropdown.Toggle variant="Secondary" id="dropdown-basic" className={style.drop}>
-      <i className="bi bi-person-circle"></i> {isLoading?<Loading/> : user.userName} 
-    </Dropdown.Toggle>
+ <div style={{ position: "relative" }}>
+      <Dropdown align="end">
+        <Dropdown.Toggle variant="Secondary" id="dropdown-basic" className={style.drop}>
+      
+          {isLoading ? (
+            <Loader/>
+          ) : (
+            <>
+              <i className="bi bi-person-circle"></i> {user.userName}
+            </>
+          )}
+        </Dropdown.Toggle>
 
-    <Dropdown.Menu>
-      <Dropdown.Item as={Link} className={style.profile} to="/profile">
-        <i className="bi bi-person me-2"></i> Profile
-      </Dropdown.Item>
-      <Dropdown.Item as={Link} className={style.LogOut} to="/auth/logout">
-        <IoLogOutOutline /> Log Out
-      </Dropdown.Item>
-    </Dropdown.Menu>
-  </Dropdown>
-</div>
+        <Dropdown.Menu>
+          <Dropdown.Item as={Link} className={style.profile} to="/profile">
+            <i className="bi bi-person me-2"></i> Profile
+          </Dropdown.Item>
+          <Dropdown.Item className={style.LogOut} onClick={logout}>
+            <IoLogOutOutline /> Log Out
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
 
           </Nav>
         </Navbar.Collapse>

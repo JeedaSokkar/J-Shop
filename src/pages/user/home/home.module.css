@@ -1,0 +1,16 @@
+/* Home.module.css */
+.homecontainer {
+  background-image: url('../../../assets/Img/homebackground.png');
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  text-align: center;      
+}
+
+.homecontainer h1 {
+  color: white; 
+  font-size: 3rem;
+  font-weight: bold; 
+}
