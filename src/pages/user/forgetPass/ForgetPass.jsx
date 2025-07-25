@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import style from './forgetPass.module.css';
+import style from './forgetpass.module.css';
 
 export default function ForgotPassword() {
   const [isLoading, setIsLoading] = useState(false);
