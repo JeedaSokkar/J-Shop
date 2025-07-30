@@ -10,7 +10,7 @@ import Container from "react-bootstrap/Container";
 import "swiper/css";
 
 export default function Category() {
-  const [Categories, setGetCategories] = useState([{}]);
+  const [Categories, setGetCategories] = useState([{}]);//لتخزين التصنيفات 
   const [isLoading, setIsLoading] = useState(true);
   const getCategories = async () => {
     try {

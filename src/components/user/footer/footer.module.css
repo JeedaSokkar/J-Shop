@@ -1,42 +1,38 @@
-.footer {
 
-  bottom: 0; 
-  left: 0;
-  width: 100%; 
-  background-color: var(--main-color);
-  color: white;
-  padding: 7px 0; 
-  display: flex;
-  justify-content: flex-end; 
-  align-items: center; 
-  z-index: 10; 
+
+.footer {
+  background-color:var(--main-color); 
+  color: #fff; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1rem 0;
 }
 
 .title {
-  color: white;
-  font-size: 24px;
-  font-weight: 600;
-  margin-right: 40px; 
-}
-
-.footer-items {
-  display: flex;
-  gap: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .footer-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-item svg {
-  color: white;
-  transition: color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
-  font-size: 24px; 
+  transition: color 0.3s ease;
 }
 
-.footer-item svg:hover {
-  color: #007bff;
-  transform: scale(1.1); }
+.footer-item:hover {
+  color: #00aaff; /* لون افتراضي عند المرور */
+}
+
+.facebook:hover {
+  color: #3b5998;
+}
+
+.instagram:hover {
+  color: #e4405f;
+}
+
+.twitter:hover {
+  color: #1da1f2;
+}
+
+.whatsapp:hover {
+  color: #25d366;
+}
