@@ -35,6 +35,32 @@ export default function cart() {
       SetIsLoadin(false);
     }
   };
+  const createOrder = async () => {
+  const token = localStorage.getItem("userToken");
+  try {
+    const response = await axios.post(
+      `${import.meta.env.VITE_BURL}/order`,
+      
+      {
+        headers: {
+          Authorization: `Tariq__${token}`,
+        },
+      }
+    );
+
+    if (response.status === 201 || response.status === 200) {
+      toast.success("Order created successfully!");
+     
+      SetCartCount(0);
+      getCart();
+    }
+  } catch (error) {
+    toast.error("Failed to create order");
+    console.error("Create Order Error:", error);
+  }
+};
+
+
 
   useEffect(() => {
     getCart();
@@ -213,6 +239,13 @@ export default function cart() {
               ))}
           </tbody>
         </Table>
+        <div className="d-flex justify-content-end my-3">
+  <Button   variant="danger"
+          size="sm" onClick={createOrder}>
+    Create Order
+  </Button>
+</div>
+
       </div>
     </section>
   );
